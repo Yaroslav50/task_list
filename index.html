@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task list</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="reset.css" /> -->
+  </head>
+  <body>
+    <header>
+      <h1>Task list</h1>
+      <form class="form">
+        <label for="new_task">New task name</label>
+        <input type="text" name="new_task" id="new_task" />
+        <!-- <input type="submit" value="Submit"> -->
+        <button type="submit">Submit BUTTON</button>
+      </form>
+    </header>
+    <main>
+      <ul id="task_list">
+        <li>Wake up</li>
+        <li>Brush your head</li>
+        <li>Brush your teeth</li>
+        <li>Breakfast</li>
+        <li>Learn HTML</li>
+      </ul>
+    </main>
+    <footer></footer>
+    <script>
+      function onSubmit(event) {
+        event.preventDefault();
+        //  Select text value from text input field
+        const textInput = document.getElementById("new_task");
+        const newTask = textInput.value;
+        console.log(newTask);
+        // create new li element
+        const newTaskElement = document.createElement("li");
+        newTaskElement.textContent = newTask;
+        // add new element to the list
+        const taskListElement = document.getElementById("task_list");
+        taskListElement.appendChild(newTaskElement);
+        textInput.value = "";
+      }
+
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", onSubmit);
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
